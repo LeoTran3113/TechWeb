@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import techweb.entity.TechAccount;
+import techweb.entity.TechUser;
 import techweb.service.TechLoginService;
 
 
@@ -36,9 +36,9 @@ public class TechLoginServlet extends HttpServlet {
 			
 			TechLoginService techLoginService = new TechLoginService();
 			
-			TechAccount acc = techLoginService.login(username, password);
+			TechUser user = techLoginService.login(username, password);
 			
-			if(acc == null) {
+			if(user == null) {
 				//response.sendRedirect("fail.jsp");
 				RequestDispatcher rd = request.getRequestDispatcher("techLogin.jsp");
 				request.setAttribute("message","Wrong user or password");
@@ -47,13 +47,13 @@ public class TechLoginServlet extends HttpServlet {
 				//request.getRequestDispatcher("home.jsp").forward(request, response);
 				//response.sendRedirect("home");
 				HttpSession session = request.getSession();
-				session.setAttribute("acc", acc.getUser_name());
-				response.sendRedirect("index.jsp");
+				session.setAttribute("user", user);
+				response.sendRedirect("home");
 			
 				
 			}
-			System.out.println(acc.getId());
-			System.out.println(acc.getEmail());
+			System.out.println(user.getId());
+			System.out.println(user.getEmail());
 
 		}catch (Exception e) {}
 			

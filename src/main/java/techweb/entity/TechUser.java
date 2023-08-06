@@ -1,12 +1,12 @@
 package techweb.entity;
 
-public class TechAccount {
+public class TechUser {
 	private int id;
 	private String username;
 	private String password;
 	private String email;
 	
-	public TechAccount(int id, String username, String password, String email) {
+	public TechUser(int id, String username, String password, String email) {
 		super();
 		this.id = id;
 		this.username = username;

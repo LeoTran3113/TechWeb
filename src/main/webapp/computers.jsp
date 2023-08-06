@@ -1,9 +1,3 @@
-
-<%@page import="java.util.Date"%>
-<%@page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 <!-- site metas -->
-<title>Frica</title>
+<title>Computers</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -44,163 +38,36 @@
 	media="screen">
 <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css"
 	rel="stylesheet" type="text/css" />
-<style>
-.isSelected {
-	color: green;
-	font-weight: bold;
-}
-</style>
-
 </head>
 <body>
 	<!-- header section start -->
-	<c:import url="header.jsp"></c:import>
-
-	<!--<div>
-						<c:if test="${empty productList}"> Sorry! There is no book available</c:if>
-						<c:if test="${not empty productList}">
-							<ul>
-								<c:forEach var="product" items="${productList}">
-									<a href="bookDetail?bookId=${product.id}">
-										<li>${product.name}</li>
-									</a>
-								</c:forEach>
-							</ul>
-						</c:if>
-					</div>-->
-
-	<!-- header section end -->
-	<!-- banner section start -->
-	<div class="banner_section layout_padding">
-		<!--  --><div id="my_slider" class="carousel slide" data-ride="carousel">
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<div class="container">
-						<div class="row border_1">
-							<div class="col-md-4">
-								<div class="image_1">
-									<img src="images/img-1.png" style="width: 100%">
-								</div>
-							</div>
-							<div class="col-md-4">
-								<h1 class="banner_taital">Big Sale Offer</h1>
-								<!-- <div class="buynow_bt active">
-									<a href="#">Buy Now</a>
-								</div> -->
-							<!-- 	<div class="contact_bt">
-									<a href="#">Contact Us</a>
-								</div> -->
-							</div>
-							<div class="col-md-4">
-								<div class="image_2">
-									<img src="images/img-2.png" style="width: 100%">
-								</div>
-							</div>
-						</div>
-					</div>
+	<div class="header_section haeder_main">
+		<div class="container-fluid">
+			<nav class="navbar navbar-light bg-light justify-content-between">
+				<div id="mySidenav" class="sidenav">
+					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+					<a href="index.jsp">Home</a> <a href="computers.jsp">Computers</a>
+					<a href="contact.html">Contact</a>
 				</div>
-				<div class="carousel-item">
-					<div class="container">
-						<div class="row border_1">
-							<div class="col-md-4">
-								<div class="image_1">
-									<img src="images/img-1.png" style="width: 100%">
-								</div>
-							</div>
-							<div class="col-md-4">
-								<h1 class="banner_taital">Big Sale Offer</h1>
-								<!-- <div class="buynow_bt active">
-									<a href="#">Buy Now</a>
-								</div> -->
-								<!-- <div class="contact_bt">
-									<a href="contact.html">Contact Us</a>
-								</div> -->
-							</div>
-							<div class="col-md-4">
-								<div class="image_2">
-									<img src="images/img-2.png" style="width: 100%">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-			<a class="carousel-control-prev" href="#my_slider" role="button"
-				data-slide="prev"> <i class="fa fa-angle-left"></i>
-			</a> <a class="carousel-control-next" href="#my_slider" role="button"
-				data-slide="next"> <i class="fa fa-angle-right"></i>
-			</a>
-		</div>
-	</div>
-	<!-- banner section end -->
-	<!-- catagary section start -->
-	<div class="catagary_section layout_padding justify-content-center">
-		<div class="container">
-			<div class="catagary_main">
-				<div class="catagary_left">
-					<h2 class="categary_text">Brands</h2>
-				</div>
-				<div class="catagary_right">
-					<div class="catagary_menu">
-						<ul class="d-flex justify-content-center">
-							<c:forEach var="category" items="${categoryList}">
-								<a class="mx-5" href="home?categoryId=${category.id}">
-									<li>${category.name}</li>
-								</a>
-							</c:forEach>
-
+				<span style="font-size: 30px; cursor: pointer; color: #fff;"
+					onclick="openNav()"><img src="images/toggle-icon.png"></span>
+				<a class="navbar-brand" href="index.html"><img
+					src="images/logo.png"></a></a>
+				<form class="form-inline ">
+					<div class="login_text">
+						<ul>
+							<li><a href="#"><img src="images/user-icon.png"></a></li>
+							<li><a href="#"><img src="images/trolly-icon.png"></a></li>
+							<li><a href="#"><img src="images/search-icon.png"></a></li>
 						</ul>
 					</div>
-				</div>
-			</div>
+				</form>
+			</nav>
 		</div>
 	</div>
-	<div class="catagary_section_2">
-		<div class="container-fluid pt-4">
-			<div class="row">
-				<c:forEach var="product" items="${productList}">
-					<div class="col-md-4 mb-4">
-
-
-						<div class="box_man h-100 d-flex flex-column">
-							<a class="d-block h-100"
-								href="techProductDetail?productId=${product.id}">
-								<h3 class="mobile_text">${product.name}</h3>
-								<div class="camera_im flex-fill">
-									<img src="${product.image}">
-								</div>
-							</a>
-							<div class="cart_main">
-								<div class="cart_bt">
-									<a href="techCart?command=ADD_TO_CART&productId=${product.id}">
-										Add To Cart </a>
-								</div>
-								<h4 class="samsung_text">${product.name}</h4>
-								<h6 class="rate_text">
-									<div>${product.price}</div>
-								</h6>
-							</div>
-						</div>
-					</div>
-				</c:forEach>
-			</div>
-		</div>
-	
-	<!-- paging statrt -->
-	<ul class="pagination justify-content-center">
-
-		<c:forEach var="pageNumber" begin="1" end="${totalPage}">
-			<li class="page-item ${pageNumber == currentPage ? 'active' : ''}"><a class="page-link" href="home?page=${pageNumber}">${pageNumber}</a></li>
-			
-		
-		</c:forEach>
-
-	</ul>
-	</div>
-	<!-- paging end -->
-	<!-- catagary section end -->
+	<!-- header section end -->
 	<!-- computers section start -->
-	<!-- <div class="computers_section layout_padding">
+	<div class="computers_section layout_padding">
 		<div class="container">
 			<h1 class="computers_taital">Computers & Laptop</h1>
 		</div>
@@ -266,12 +133,75 @@
 				</div>
 			</div>
 		</div>
-	</div> -->
+	</div>
 	<!-- computers section end -->
-
-
 	<!-- footer section start -->
-	<c:import url="footer.jsp"></c:import>
+	<div class="footer_section layout_padding margin_top_90">
+		<div class="container">
+			<div class="footer_logo_main">
+				<div class="footer_logo">
+					<a href="index.html"><img src="images/footer-logo.png"></a>
+				</div>
+				<div class="social_icon">
+					<ul>
+						<li><a href="#"><img src="images/fb-icon.png"></a></li>
+						<li><a href="#"><img src="images/twitter-icon.png"></a></li>
+						<li><a href="#"><img src="images/linkedin-icon.png"></a></li>
+						<li><a href="#"><img src="images/instagram-icon.png"></a></li>
+						<li><a href="#"><img src="images/youtub-icon.png"></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="footer_section_2">
+				<div class="row">
+					<div class="col-lg-3 col-sm-6">
+						<h4 class="adderss_text">About</h4>
+						<p class="ipsum_text">consectetur adipiscing elit, sed do
+							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+							enim ad minim veniam, quis nostrud exercitation u</p>
+					</div>
+					<div class="col-lg-3 col-sm-6">
+						<h4 class="adderss_text">Menu</h4>
+						<div class="footer_menu">
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li><a href="computers.html">Computers</a></li>
+
+								<li><a href="contact.html">Contact Us</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-3 col-sm-6">
+						<h4 class="adderss_text">Useful Link</h4>
+						<div class="footer_menu">
+							<ul>
+								<li><a href="#">Adipiscing</a></li>
+								<li><a href="#">Elit, sed do</a></li>
+								<li><a href="#">Eiusmod</a></li>
+								<li><a href="#">Tempor</a></li>
+								<li><a href="#">incididunt</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-3 col-sm-6">
+						<h4 class="adderss_text">Contact</h4>
+						<div class="call_text">
+							<img src="images/map-icon.png"><span class="paddlin_left_0"><a
+								href="#">London 145 United Kingdom</a></span>
+						</div>
+						<div class="call_text">
+							<img src="images/call-icon.png"><span
+								class="paddlin_left_0"><a href="#">+7586656566</a></span>
+						</div>
+						<div class="call_text">
+							<img src="images/mail-icon.png"><span
+								class="paddlin_left_0"><a href="#">volim@gmail.com</a></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- footer section end -->
 	<!-- copyright section start -->
 	<div class="copyright_section">
