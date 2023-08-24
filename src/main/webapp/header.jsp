@@ -80,7 +80,7 @@
 					</div>
 					<div>
 						<c:if test="${not empty sessionScope.user}">
-							<div>Hello ${sessionScope.user}</div>
+							<div>Hello ${sessionScope.user.getUser_name()}</div>
 							<a href="techLogout">
 								<button
 									onclick="document.getElementById('id01').style.display='block'"

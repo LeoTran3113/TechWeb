@@ -49,6 +49,7 @@
 	color: green;
 	font-weight: bold;
 }
+.text-underlined >li{color: red!important}
 </style>
 
 </head>
@@ -72,7 +73,8 @@
 	<!-- header section end -->
 	<!-- banner section start -->
 	<div class="banner_section layout_padding">
-		<!--  --><div id="my_slider" class="carousel slide" data-ride="carousel">
+		<!--  -->
+		<div id="my_slider" class="carousel slide" data-ride="carousel">
 			<div class="carousel-inner">
 				<div class="carousel-item active">
 					<div class="container">
@@ -87,7 +89,7 @@
 								<!-- <div class="buynow_bt active">
 									<a href="#">Buy Now</a>
 								</div> -->
-							<!-- 	<div class="contact_bt">
+								<!-- 	<div class="contact_bt">
 									<a href="#">Contact Us</a>
 								</div> -->
 							</div>
@@ -124,83 +126,87 @@
 						</div>
 					</div>
 				</div>
-				
-			<a class="carousel-control-prev" href="#my_slider" role="button"
-				data-slide="prev"> <i class="fa fa-angle-left"></i>
-			</a> <a class="carousel-control-next" href="#my_slider" role="button"
-				data-slide="next"> <i class="fa fa-angle-right"></i>
-			</a>
-		</div>
-	</div>
-	<!-- banner section end -->
-	<!-- catagary section start -->
-	<div class="catagary_section layout_padding justify-content-center">
-		<div class="container">
-			<div class="catagary_main">
-				<div class="catagary_left">
-					<h2 class="categary_text">Brands</h2>
-				</div>
-				<div class="catagary_right">
-					<div class="catagary_menu">
-						<ul class="d-flex justify-content-center">
-							<c:forEach var="category" items="${categoryList}">
-								<a class="mx-5" href="home?categoryId=${category.id}">
-									<li>${category.name}</li>
-								</a>
-							</c:forEach>
 
-						</ul>
-					</div>
-				</div>
+				<a class="carousel-control-prev" href="#my_slider" role="button"
+					data-slide="prev"> <i class="fa fa-angle-left"></i>
+				</a> <a class="carousel-control-next" href="#my_slider" role="button"
+					data-slide="next"> <i class="fa fa-angle-right"></i>
+				</a>
 			</div>
 		</div>
-	</div>
-	<div class="catagary_section_2">
-		<div class="container-fluid pt-4">
-			<div class="row">
-				<c:forEach var="product" items="${productList}">
-					<div class="col-md-4 mb-4">
+		<!-- banner section end -->
+		<!-- catagary section start -->
+		<div class="catagary_section layout_padding justify-content-center">
+			<div class="container">
+				<div class="catagary_main">
+					<div class="catagary_left">
+						<h2 class="categary_text">Brands</h2>
+					</div>
+					<div class="catagary_right">
+						<div class="catagary_menu">
+							<ul class="d-flex justify-content-center">
+								<c:forEach var="category" items="${categoryList}">
+									<a class="mx-5 ${category.id == categoryId ? 'text-underlined' : ''}" href="home?categoryId=${category.id}">
+										<li>${category.name}</li>
+									</a>
+									<%-- <li
+										class="cate-item ${category == categoryList.name ? 'active' : ''}"><a
+										class="cate-link" href="home?categoryId=${category}">${category}</a></li> --%>
+								</c:forEach>
 
-
-						<div class="box_man h-100 d-flex flex-column">
-							<a class="d-block h-100"
-								href="techProductDetail?productId=${product.id}">
-								<h3 class="mobile_text">${product.name}</h3>
-								<div class="camera_im flex-fill">
-									<img src="${product.image}">
-								</div>
-							</a>
-							<div class="cart_main">
-								<div class="cart_bt">
-									<a href="techCart?command=ADD_TO_CART&productId=${product.id}">
-										Add To Cart </a>
-								</div>
-								<h4 class="samsung_text">${product.name}</h4>
-								<h6 class="rate_text">
-									<div>${product.price}</div>
-								</h6>
-							</div>
+							</ul>
 						</div>
 					</div>
-				</c:forEach>
+				</div>
 			</div>
 		</div>
-	
-	<!-- paging statrt -->
-	<ul class="pagination justify-content-center">
+		<div class="catagary_section_2">
+			<div class="container-fluid pt-4">
+				<div class="row">
+					<c:forEach var="product" items="${productList}">
+						<div class="col-md-4 mb-4">
 
-		<c:forEach var="pageNumber" begin="1" end="${totalPage}">
-			<li class="page-item ${pageNumber == currentPage ? 'active' : ''}"><a class="page-link" href="home?page=${pageNumber}">${pageNumber}</a></li>
-			
-		
-		</c:forEach>
 
-	</ul>
-	</div>
-	<!-- paging end -->
-	<!-- catagary section end -->
-	<!-- computers section start -->
-	<!-- <div class="computers_section layout_padding">
+							<div class="box_man h-100 d-flex flex-column">
+								<a class="d-block h-100"
+									href="techProductDetail?productId=${product.id}">
+									<h3 class="mobile_text">${product.name}</h3>
+									<div class="camera_im flex-fill">
+										<img src="${product.image}">
+									</div>
+								</a>
+								<div class="cart_main">
+									<div class="cart_bt">
+										<a href="techCart?command=ADD_TO_CART&productId=${product.id}">
+											Add To Cart </a>
+									</div>
+									<h4 class="samsung_text">${product.name}</h4>
+									<h6 class="rate_text">
+										<div>${product.price}</div>
+									</h6>
+								</div>
+							</div>
+						</div>
+					</c:forEach>
+				</div>
+			</div>
+
+			<!-- paging statrt -->
+			<ul class="pagination justify-content-center">
+
+				<c:forEach var="pageNumber" begin="1" end="${totalPage}">
+					<li class="page-item ${pageNumber == currentPage ? 'active' : ''}"><a
+						class="page-link" href="home?page=${pageNumber}">${pageNumber}</a></li>
+
+
+				</c:forEach>
+
+			</ul>
+		</div>
+		<!-- paging end -->
+		<!-- catagary section end -->
+		<!-- computers section start -->
+		<!-- <div class="computers_section layout_padding">
 		<div class="container">
 			<h1 class="computers_taital">Computers & Laptop</h1>
 		</div>
@@ -267,45 +273,45 @@
 			</div>
 		</div>
 	</div> -->
-	<!-- computers section end -->
+		<!-- computers section end -->
 
 
-	<!-- footer section start -->
-	<c:import url="footer.jsp"></c:import>
-	<!-- footer section end -->
-	<!-- copyright section start -->
-	<div class="copyright_section">
-		<div class="container">
-			<p class="copyright_text">
-				2020 All Rights Reserved. Design by <a href="https://html.design">Free
-					html Templates</a>
-			</p>
+		<!-- footer section start -->
+		<c:import url="footer.jsp"></c:import>
+		<!-- footer section end -->
+		<!-- copyright section start -->
+		<div class="copyright_section">
+			<div class="container">
+				<p class="copyright_text">
+					2020 All Rights Reserved. Design by <a href="https://html.design">Free
+						html Templates</a>
+				</p>
+			</div>
 		</div>
-	</div>
-	<!-- copyright section end -->
-	<!-- Javascript files-->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.bundle.min.js"></script>
-	<script src="js/jquery-3.0.0.min.js"></script>
-	<script src="js/plugin.js"></script>
-	<!-- sidebar -->
-	<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-	<script src="js/custom.js"></script>
-	<!-- javascript -->
-	<script src="js/owl.carousel.js"></script>
-	<script
-		src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-	<script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js"
-		type="text/javascript"></script>
-	<script>
-		function openNav() {
-			document.getElementById("mySidenav").style.width = "100%";
-		}
+		<!-- copyright section end -->
+		<!-- Javascript files-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/popper.min.js"></script>
+		<script src="js/bootstrap.bundle.min.js"></script>
+		<script src="js/jquery-3.0.0.min.js"></script>
+		<script src="js/plugin.js"></script>
+		<!-- sidebar -->
+		<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script src="js/custom.js"></script>
+		<!-- javascript -->
+		<script src="js/owl.carousel.js"></script>
+		<script
+			src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+		<script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js"
+			type="text/javascript"></script>
+		<script>
+			function openNav() {
+				document.getElementById("mySidenav").style.width = "100%";
+			}
 
-		function closeNav() {
-			document.getElementById("mySidenav").style.width = "0";
-		}
-	</script>
+			function closeNav() {
+				document.getElementById("mySidenav").style.width = "0";
+			}
+		</script>
 </body>
 </html>

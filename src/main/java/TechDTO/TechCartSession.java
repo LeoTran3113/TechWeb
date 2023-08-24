@@ -8,6 +8,7 @@ import techweb.entity.TechProduct;
 public class TechCartSession {
 		private int userId;
 		private Set<TechProduct> products;
+		private int quantity;
 		private int totalPrice;
 
 		public int getUserId() {
@@ -16,6 +17,14 @@ public class TechCartSession {
 
 		public void setUserId(int userId) {
 			this.userId = userId;
+		}
+
+		public int getQuantity() {
+			return quantity;
+		}
+
+		public void setQuantity(int quantity) {
+			this.quantity = quantity;
 		}
 
 		public TechCartSession() {

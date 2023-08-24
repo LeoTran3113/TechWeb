@@ -61,7 +61,10 @@
 			<div class="d-flex justify-content-center row">
 				<div class="col-md-8">
 					<div class="p-2 d-flex justify-content-between">
-						<h4>Your Shopping cart</h4> <a href="home"><h4><mark class="text-danger">Continue Shopping</mark></h4></a>
+						<h4>Your Shopping cart</h4>
+						<a href="home"><h4>
+								<mark class="text-danger">Continue Shopping</mark>
+							</h4></a>
 
 					</div>
 					<c:forEach var="product" items="${sessionScope.cart.products}"
@@ -76,17 +79,18 @@
 								<span class="font-weight-bold">${product.name}</span>
 
 							</div>
-							<div class="d-flex flex-row align-items-center qty">
-								<i class="fa fa-minus text-danger"></i>
-								<h5 class="text-grey mt-1 mr-1 ml-1">2</h5>
-								<i class="fa fa-plus text-success"></i>
-							</div>
-							<div>
+							<%-- <div class="d-flex flex-row align-items-center qty">
+								<a class="fa fa-minus text-danger" href="techQuantity?action=dec&productId=${cart.getProductId()}>"></a>
+								<h5 class="text-grey mt-1 mr-1 ml-1">${cart.getQuantity()}</h5>
+								<a class="fa fa-plus text-success" href="techQuantity?action=dinc&productId=${cart.getProductId()}>"></a>
+							</div> --%>
+							<div >
 								<h5 class="text-grey">${product.price}</h5>
 							</div>
 
 							<div class="d-flex align-items-center">
-								<i class="fa fa-trash mb-1 text-danger"></i> <a class="text-info"
+								<i class="fa fa-trash mb-1 text-danger"></i> <a
+									class="text-info"
 									href="techCart?command=REMOVE&productId=${product.id}">Remove</a>
 							</div>
 						</div>
@@ -95,13 +99,13 @@
 					<div
 						class="d-flex flex-row align-items-center mt-3 p-2 bg-white rounded">
 						<a class="btn btn-warning btn-block btn-lg ml-2 pay-button"
-							href="techCart?command=CHECKOUT"> Checkout</a>
+							href="techCart?command=CHECKOUT">Checkout</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</c:if>
 
-
+	<c:import url="footer.jsp"></c:import>
 </body>
 </html>

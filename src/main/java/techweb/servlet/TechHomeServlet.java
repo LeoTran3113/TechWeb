@@ -55,6 +55,7 @@ public class TechHomeServlet extends HttpServlet {
 			request.setAttribute("productList", productList);
 			request.setAttribute("productName", productName);
 			request.setAttribute("currentPage", currentPage);
+			request.setAttribute("categoryId", categoryId);
 			request.setAttribute("totalPage", productService.getTotalPage());
 
 			rd.forward(request, response);

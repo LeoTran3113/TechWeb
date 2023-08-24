@@ -48,6 +48,7 @@ public class TechLoginServlet extends HttpServlet {
 				//response.sendRedirect("home");
 				HttpSession session = request.getSession();
 				session.setAttribute("user", user);
+//				session.setAttribute("user", user.getUser_name());
 				response.sendRedirect("home");
 			
 				

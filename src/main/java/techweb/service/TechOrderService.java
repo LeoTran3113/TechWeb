@@ -30,7 +30,7 @@ public class TechOrderService {
 			while (rs.next()) {
 				int orderId = rs.getInt(1);
 				for (TechProduct product : cart.getProducts()) {
-					ps = conn.prepareStatement("insert into techweb.`order_item` (`order_id`, `book_id`,`price`) values (?,?,?)");
+					ps = conn.prepareStatement("insert into techweb.`order_item` (`order_id`, `product_id`,`price`) values (?,?,?)");
 					ps.setInt(1, orderId);
 					ps.setInt(2, product.getId());
 					ps.setInt(3, product.getPrice());

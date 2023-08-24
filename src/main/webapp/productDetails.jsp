@@ -625,13 +625,13 @@ ul {
 									</div>
 								</div>
 								<div class="col-xs-6">
-									<button
-										<a href="techCart?command=ADD_TO_CART&productId=${product.id}"
-										type="button" value="Add to Cart" class="btn btn-primary shop-button">Add
-										to Cart
-										</a></button></button></button>
+
+									<a href="techCart?command=ADD_TO_CART&productId=${product.id}"
+										type="button" value="Add to Cart"
+										class="btn btn-primary shop-button">Add to Cart </a>
+
 									<button type="button" class="btn btn-success shop-button">BuyNow</button>
-									
+
 								</div>
 							</div>
 						</div>

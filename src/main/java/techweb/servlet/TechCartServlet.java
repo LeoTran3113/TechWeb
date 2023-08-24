@@ -103,7 +103,7 @@ public class TechCartServlet extends HttpServlet {
 		TechOrderService orderService = new TechOrderService();
 		orderService.insertOrderWithItems(cart);
 		request.getSession().removeAttribute("cart");
-		response.sendRedirect("home");
+		response.sendRedirect("techThanks.jsp");
 
 		List<TechOrderItem> items = new ArrayList<TechOrderItem>();
 	}
