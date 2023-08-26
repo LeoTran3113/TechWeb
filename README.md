@@ -2,19 +2,19 @@ Project Ecommerce Website name "TechWeb"
 
 This project using MVC model to generate the website using localhost server
 
-. In this website customer can register account to buy our latest laptops.
+1/ In this website customer can register account to buy our latest laptops.
 
-. Customers must login to buy or checkout their cart
+2/ Customers must login to buy or checkout their cart
 
-. Forgot password function with OTP sent to their email to retrieve their username and password
+3/ Forgot password function with OTP sent to their email to retrieve their username and password
 
-. All our products will be listed in homepage using pagination. 
+4/ All our products will be listed in homepage using pagination. 
 
-. Also customers can search products buy name.
+5/ Also customers can search products buy name.
 
-. Products are also sorted by brands if customer wish to look for their preferable brands
+6/ Products are also sorted by brands if customer wish to look for their preferable brands
 
-. Cart function only allow customer to add NO duplicate prducts
+7/ Cart function only allow customer to add NO duplicate prducts
 
 Below are details of how our website has to offer :
 . Customer sigup/signin page
